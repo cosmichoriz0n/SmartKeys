@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<resources>
+    <string name="smartkeys_smart_touch">Smart touch targets</string>
+    <string name="smartkeys_smart_touch_summary">Like iPhone: invisibly enlarges the keys you\'re most likely to hit next and learns your tap offset</string>
+    <string name="smartkeys_learn_from_reverts">Learn from undone corrections</string>
+    <string name="smartkeys_learn_from_reverts_summary">If you undo an autocorrection with backspace, that word is never autocorrected again. Turning this off clears the list.</string>
+</resources>
