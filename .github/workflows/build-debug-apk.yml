@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
 
@@ -32,6 +35,15 @@ jobs:
         with:
           name: SmartKeys-debug
           path: app/build/outputs/apk/debug/*-debug*.apk
+
+      - name: Publish APK as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "build-${{ github.run_number }}" app/build/outputs/apk/debug/*-debug*.apk \
+            --title "SmartKeys build ${{ github.run_number }}" \
+            --notes "Debug build of ${{ github.sha }}. Install the .apk on your phone (allow installs from unknown sources)." \
+            --target "${{ github.sha }}"
 
       - name: Archive reports for failed job
         uses: actions/upload-artifact@v4
